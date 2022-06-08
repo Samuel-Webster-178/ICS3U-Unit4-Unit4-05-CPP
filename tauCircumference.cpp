@@ -6,22 +6,34 @@
 //     with dimensions inputted from user
 
 #include <iostream>
+#include <string>
 
 int main() {
-    // I calculate circumference of a circle
-    const double TAU = 6.28;
-    int radius;
-    double circumference;
+    // I am the main function
+    std::string strNumber;
+    int intNumber;
+    float sum = 0;
+    float num;
 
     // input
-    std::cout << "Enter radius of the circle in mm: ";
-    std::cin >> radius;
+    std::cout << "How many number do you want to add: ";
+    std::cin >> strNumber;
 
-    // process
-    circumference = TAU*radius;
-
-    // output
-    std::cout << "" << std::endl;
-    std::cout << "Circumference is " << circumference << " mm" << std::endl;
+    // process & output
+    try {
+        intNumber = std::stoi(strNumber);
+        for (int counter1 = 0; counter1 < intNumber; counter1++) {
+                std::cout << "number: ";
+                std::cin >> num;
+                if (num > 0) {
+                    sum = sum + num;
+                } else {
+                    continue;
+                }
+        }
+        std::cout << "The sum is " << sum << "." << std::endl;
+    } catch (std::invalid_argument) {
+        std::cout << "Invalid Input" << std::endl;
+    }
     std::cout << "\nDone." << std::endl;
 }
